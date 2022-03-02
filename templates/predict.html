@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang = "fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content = IE=edge>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@900&family=Maven+Pro:wght@900&family=Noto+Sans&family=Ruda:wght@900&display=swap" rel="stylesheet">
+        
+        <!-- favicon.ico  --from https://favicon.io/-->
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon_io/favicon.ico') }}">
+
+        <!-- css style sheet -->
+        <link href="{{ url_for('static', filename='styles/style.css') }}?v={{now}}" rel="stylesheet" type="text/css">
+        <title>Estimation de prix</title>
+    </head>
+
+    <body>
+        
+            <h1>ESTIMATION DE PRIX</h1>
+        
+        <div class="feat-font">    
+        <div class="padding">
+            <div class="large">
+                <div class="result">
+                {% if prediction %}
+                    <p>D'après des données sur {{num_cars}} voitures, le prix de vente estimé est de : </p> 
+                    <h2>{{prediction}} €</h2>
+                {%endif%}
+                </div>
+            </div>
+        </div>
+                
+                
+        <div>
+                {% if input_data %}
+                <p class = "large">Pour une voiture avec les caractéristiques suivantes :</p>
+                <table class="center">
+                    <thead>
+                    <tr>
+                        {% for feature in fr_features %}
+                        <th> {{ feature }} </th>
+                        {% endfor %}
+                    </tr>
+                    
+                    </thead>
+                    <tbody>
+                    
+                    <tr>
+                        {% for value in input_data.values() %}
+                        <td> {{ value }} </td>
+                        {% endfor %} 
+                    </tr>
+                    
+                    </tbody>
+                </table>
+                <br><br>
+            {%endif%}      
+        </div>
+            
+            
+
+            
+            <footer class="medium">
+            <a href="/">Retourner à la page d'accueil</a>
+            </footer>
+        
+        </div>    
+    </body>
+
+</html>

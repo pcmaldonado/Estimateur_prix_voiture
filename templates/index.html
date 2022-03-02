@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang = "fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content = "IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@900&family=Maven+Pro:wght@900&family=Noto+Sans&family=Ruda:wght@900&display=swap" rel="stylesheet">
+        
+        <!-- favicon.ico  --from https://favicon.io/-->
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon_io/favicon.ico') }}">
+
+        <!-- css style sheet -->
+        <link href="{{ url_for('static', filename='styles/style.css') }}?v={{now}}" rel="stylesheet" type="text/css">
+
+
+        <title>Accueil</title>
+    </head>
+
+    <body>
+        <h1>ESTIMATEUR PRIX - VOITURE D'OCCASION</h1>
+
+    <div class="feat-font">
+        <div class="select">
+        <div class="row">
+            <form action = "{{url_for('home')}}" method = "POST">
+                <div class="column">
+                <!-- COLUMN 1  -->
+                <label for="years">Année</label><br>
+                <select name="years">
+                    {% for year in years %}
+                    <option value="{{year}}">{{year}}</option>
+                    {% endfor %}
+                </select>
+                <br><br><br>
+
+                <label for="years">Marque</label><br>
+                <select name="brands">
+                    {% for brand in brands %}
+                    <option value="{{brand}}">{{brand}}</option>
+                    {% endfor %}
+                </select><br><br><br>   
+                               
+                <label for="fuel">Energie</label><br>
+                <select name="fuel">
+                    {% for fuel in fuels %}
+                    <option value="{{fuel}}">{{fuel}}</option>
+                    {% endfor %}
+                </select><br><br><br>  
+
+                <label for="transmission">Transmission</label><br>
+                <select name="transmission">
+                    {% for transmission in trans %}
+                    <option value="{{transmission}}">{{transmission}}</option>
+                    {% endfor %}
+                </select><br><br> <br>
+                </div>
+
+                <!-- COLUMN 2  -->
+                <div class="column">
+                <label for="doors">Nombre de portes</label><br>
+                <select name="doors">
+                    {% for range in range10 %}
+                    <option value="{{range}}">{{range}}</option>
+                    {% endfor %}
+                </select><br><br><br>
+
+                <label for="power_cv">Puissance fiscale (CV)</label><br>
+                <select name="power_cv">
+                    {% for range in range10 %}
+                    <option value="{{range}}">{{range}}</option>
+                    {% endfor %}
+                </select><br><br><br>
+
+                <label for="seats">Nombre de places</label><br>
+                <select name="seats">
+                    {% for range in range10 %}
+                    <option value="{{range}}">{{range}}</option>
+                    {% endfor %}
+                </select><br><br><br>
+                </div>
+
+                <!-- COLUMN 3  -->
+                <div class="column">
+                <label for="kms">Kilomètres parcourus</label><br>
+                <input type="number" min = "0" name="kms" placeholder=" " autocomplete="off"><br><br><br>
+                    
+                <label for="emiss_co2">Emissions de CO2 g/km</label><br>
+                <input type="number" min = "0" name="emiss_co2" placeholder=" " autocomplete="off"><br><br><br>                    
+                    
+                <label for="cons_litre">Consommation litres/100 km</label><br>
+                <input type="number" min = "0" name="cons_litre" placeholder=" " autocomplete="off">
+                </div>
+        </div>        
+        </div>
+    </div>
+
+    <input type="submit", value = 'Estimez le prix'>
+    </form>     
+    </body>
+
+</html>
