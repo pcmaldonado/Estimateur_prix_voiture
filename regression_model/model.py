@@ -10,14 +10,16 @@ from regression_model.processing.data_manager import load_pipeline, load_model
 # from regression_model.pipeline import feature_engineering
 from regression_model.train_pipeline import run_training
 
-run_training()
+# load and fit pipeline
+try:
+    pipeline_file_name = f'{config.app_config.feat_pipeline_save_file}.pkl'
+    _price_pipe = load_pipeline(file_name = pipeline_file_name)
 
+    model_file_name = f'{config.app_config.model_save_file}.pkl'
+    _model = load_model(file_name = model_file_name)
+except:
+    run_training()
 
-pipeline_file_name = f'{config.app_config.feat_pipeline_save_file}.pkl'
-_price_pipe = load_pipeline(file_name = pipeline_file_name)
-
-model_file_name = f'{config.app_config.model_save_file}.pkl'
-_model = load_model(file_name = model_file_name)
 
 
 def estimate_price(input_data):
