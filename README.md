@@ -1,5 +1,5 @@
 # Estimateur prix voiture
-Déploiement d'un algorithme de machine learning entraîné sur des données collectées sur un site de vente de voitures d'occasion.
+Déploiement d'un algorithme de machine learning entraîné sur des données collectées sur un site de vente de voitures d'occasion, disponible sur Heroku: https://estimateur-prix-voiture.herokuapp.com/
 
 ------------
 
