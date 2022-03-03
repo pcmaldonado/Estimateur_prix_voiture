@@ -37,7 +37,8 @@ def run_training():
 
 def get_brands():
     data = load_dataset(file_name = config.app_config.training_data_file)
-    brands = list(data['Brand'].unique())
+    brands = list(data['Brand'].sort_values().unique())
+    brands.remove(np.nan)
     brands.insert(0, " ")
     return brands
 

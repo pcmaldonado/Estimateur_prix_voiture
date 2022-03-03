@@ -1,5 +1,3 @@
-/* RIGHT BORDER OF TABLE IS ALMOST GOOD ON SAMSUNG GS8 */
-/* ALL RIGHT UP TO 720px, then gets better around 400px */
 html { font-size:100%; }
 
 body
@@ -25,6 +23,7 @@ h2 {
     margin-top: 2%;
     font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
+    margin-bottom: 2rem;
 }
 
 .large
@@ -126,6 +125,7 @@ input[type=submit]
     border-radius: .25em;
     border: 2px solid black;
     margin-top: -10rem;
+    margin-bottom: 2rem;
 }
 
 
@@ -277,4 +277,3 @@ h1
         padding: 2%;
     }
 }
-
