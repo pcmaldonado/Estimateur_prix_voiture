@@ -29,8 +29,6 @@ class AppConfig(BaseModel):
 class ModelConfig(BaseModel):
     """All configuration relevant to model training and feature engineering"""
 
-    # random_state: int
-
     target: str
     features: List[str]
     luxury_cars_list: List[str]

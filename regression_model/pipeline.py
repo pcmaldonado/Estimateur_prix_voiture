@@ -50,7 +50,7 @@ feature_engineering = Pipeline([
 
 
     
-        # Applying rare label encoder
+    # Applying rare label encoder
         ('rare_label_encoder', RareLabelEncoder(tol = 0.05, 
                                 n_categories = 2, 
                                 variables = config.model_config.rare_labels ,
@@ -59,7 +59,8 @@ feature_engineering = Pipeline([
     # Applying one-hot encoder
     ('one_hot_encoder', OneHotEncoder()),
     
-    # Apply scaler
+    
+    # ==== APPLY FEATURE SCALING ====
     ('apply_scaler', MinMaxScaler()),
 
 ])    
