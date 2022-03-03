@@ -29,6 +29,8 @@ fr_features = ['Année', 'Marque', 'KMs', 'Energie', 'Emissions CO2', 'Consommat
 # ====== FLASK ======
 app = Flask(__name__, template_folder="./templates", static_folder="./static")
 
+app.jinja_env.filters['zip'] = zip
+
 # Getting input from user
 @app.route("/", methods = ["GET", "POST"])
 def main():
@@ -62,8 +64,10 @@ def home():
     # Predict price with regression model
     pred = model.estimate_price(input_data)
 
+    input_data_values = list(input_data.values())
+
     # Return data needed for predict.html
-    return render_template("predict.html", prediction = pred, input_data = input_data, fr_features = fr_features,
+    return render_template("predict.html", prediction = pred, input_data_values = input_data_values, fr_features = fr_features,
                                             now = date_time, num_cars = num_cars)
 
 

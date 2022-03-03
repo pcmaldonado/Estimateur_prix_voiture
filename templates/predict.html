@@ -35,14 +35,16 @@
             </div>
         </div>
                 
-                
-        <div>
-                {% if input_data %}
-                <p class = "large">Pour une voiture avec les caractéristiques suivantes :</p>
-                <table class="center">
+        
+        {% if input_data_values %}
+        <p class = "large">Pour une voiture avec les caractéristiques suivantes :</p>
+        <div class="container">
+            <div class="row">
+                <div class="column-table">
+                <table> 
                     <thead>
                     <tr>
-                        {% for feature in fr_features %}
+                        {% for feature in fr_features[:5] %}
                         <th> {{ feature }} </th>
                         {% endfor %}
                     </tr>
@@ -51,25 +53,46 @@
                     <tbody>
                     
                     <tr>
-                        {% for value in input_data.values() %}
-                        <td> {{ value }} </td>
+                        {% for feature,value in fr_features[:5]|zip(input_data_values[:5]) %}
+                        <td data-label="{{feature}}"> {{ value }} </td>
                         {% endfor %} 
                     </tr>
                     
                     </tbody>
                 </table>
+                </div>
+                    
+                <div class="column-table">
+                <table>
+                    <thead>
+                    <tr>
+                        {% for feature in fr_features[5:] %}
+                        <th> {{ feature }} </th>
+                        {% endfor %}
+                    </tr>
+                    
+                    </thead>
+                    <tbody>
+                    
+                    <tr>
+                        {% for feature,value in fr_features[5:]|zip(input_data_values[5:]) %}
+                        <td data-label="{{feature}}"> {{ value }} </td>
+                        {% endfor %} 
+                    </tr>
+                    
+                    </tbody>
+                </table>
+                </div>
                 <br><br>
             {%endif%}      
+            </div>
+           
         </div>
-            
-            
+        </div>
 
-            
-            <footer class="medium">
+        <footer class="medium">
             <a href="/">Retourner à la page d'accueil</a>
             </footer>
-        
-        </div>    
     </body>
 
 </html>
