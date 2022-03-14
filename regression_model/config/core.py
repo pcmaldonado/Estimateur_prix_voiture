@@ -24,7 +24,10 @@ class AppConfig(BaseModel):
 
     feat_pipeline_save_file: str
     model_save_file: str
-    
+    brands_save_file: str
+    fuels_save_file: str
+    trans_save_file: str
+    data_size_save_file: str
 
 class ModelConfig(BaseModel):
     """All configuration relevant to model training and feature engineering"""

@@ -4,23 +4,25 @@ from regression_model import model
 from datetime import datetime
 import numpy as np
 
+from regression_model.config.core import config
 from regression_model.processing.input_validation import cast_num
-from regression_model.processing.data_manager import get_num_cars
-from regression_model.train_pipeline import get_brands, get_fuels, get_trans
+from regression_model.processing.data_manager import load_brands, load_fuels, load_trans, load_data_size
 
 
 # ====== SETUP ======
 # Getting data to generate selections on index.html
 years = list(np.arange(1930,2023))
 years.insert(0, " ")
+
 range10 = list(np.arange(1,11))
 range10.insert(0, " ")
-brands = get_brands()
-fuels = get_fuels()
-trans = get_trans()
+
+brands = load_brands(f'{config.app_config.brands_save_file}.pkl')
+fuels = load_fuels(f'{config.app_config.fuels_save_file}.pkl')
+trans = load_trans(f'{config.app_config.trans_save_file}.pkl')
 
 # Getting number of cars to display in predict.hmtl
-num_cars = get_num_cars()
+num_cars = load_data_size(f'{config.app_config.data_size_save_file}.pkl')
 
 # Translating features to french to display in table at predict.html
 fr_features = ['Année', 'Marque', 'KMs', 'Energie', 'Emissions CO2', 'Consommation', 'Transmission', 'Portes', 'Puissance', 'Places']
@@ -43,7 +45,7 @@ def main():
 
 
 # Generating price estimation
-@app.route("/predict", methods = ["Post"])
+@app.route("/predict", methods = ["POST"])
 def home():
     now = datetime.now() 
     date_time = now.strftime("%m%d%Y%H%M%S")
