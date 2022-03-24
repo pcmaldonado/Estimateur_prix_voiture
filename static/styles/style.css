@@ -7,8 +7,11 @@
      text-align: center;   
      width: 100%;
      height: 100%;
-     background: linear-gradient(to bottom right, #6e529d 0%,#d97b93 100%); 
+     /* background: linear-gradient(to bottom right, #6e529d 0%,#d97b93 100%);  */
      background-size: 130% 130%;
+     background-image: linear-gradient(to bottom,  #6e529d96, rgba(0,0,255,0.5)), 
+                    url("price-estimator.jpg");
+    
  }
  
  .header h1
@@ -16,7 +19,7 @@
      padding-top: 30px;
      padding-bottom: 30px;
      margin-bottom: 2rem;
-     background: radial-gradient(circle at 40% 40%, #ddcae6a9 25%, transparent 26%),radial-gradient(circle at 60% 60%, #fbc25865 25%, transparent 26%);
+     /* background: radial-gradient(circle at 40% 40%, #ddcae6a9 25%, transparent 26%),radial-gradient(circle at 60% 60%, #fbc25865 25%, transparent 26%); */
      background-size: 3em 3em;
      background-color: #ebe1f8;
      opacity: 0.9;
@@ -72,7 +75,7 @@ select, input[type=number] {
 
 input[type=submit]
 {
-    background-color: #fbc258ab;
+    background-color: #f1b036ec;
     border: none;
     color: black;
     padding: 16px 32px;
@@ -137,7 +140,7 @@ input[type=number] {
 .result{
     padding: 3%;
     border: 2px solid rgb(75, 60, 70);
-    background-color: #fbc258ab;
+    background-color: #f1b036ec;
     border-radius: .3em;
     margin-bottom: 1%;
     margin-top: -1%;
@@ -184,6 +187,8 @@ h2 {
 
 .features p {
     margin-bottom: 0rem;
+    color:#ebe1f8;
+    font-size: 1.3rem;
 }
 
 .features .container{
@@ -218,7 +223,9 @@ table, th, td
 }
 
 th {
-    background:rgba(212, 157, 194, 0.418);
+    /* background:rgba(212, 157, 194, 0.418); */
+    background:rgba(168, 130, 212, 0.418);
+
 }
 
 th, td {
