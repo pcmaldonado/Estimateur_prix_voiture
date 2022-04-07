@@ -10,10 +10,24 @@ Details on the data wrangling & model selection process on: https://github.com/p
 ## Regression Model
 It contains a local package containing all the code needed to create the Machine Learning model deployed on Heroku.
 Besides some subdirectories, it contains three python scripts:
-* *run_model.py:* it runs the entire process to create, train and save the ML model. To retrain the model, from project folder on terminal run `python regression_model/run_model.py`
-* *extract_information.py:* it saves information needed for the display of the web application onto pickle files. If a file update was needed, as before, run `python regression_model/extract_information.py`
-* *predict.py:* it loads the feature engineering pipeline and the trained model to predict on new data (used on deployment) 
 
+<details>
+<summary><b>run_model.py</b></summary> 
+It runs the entire process to create, train and save the ML model.<br><br> To retrain the model:<br>
+<img src="https://user-images.githubusercontent.com/84249222/162190556-344175a0-aada-461c-954b-bdaf63034563.png">
+</details>
+
+<details>
+<summary><b>extract_information.py</b></summary> 
+It saves information needed for the display of the web application onto pickle files.<br><br>  If a file update was needed, as before:<br>
+<img src="https://user-images.githubusercontent.com/84249222/162190933-71c03dbd-ffe4-4917-aaf8-b13f63b428d1.png">
+</details>
+
+
+<details>
+<summary><b>predict.py</b></summary> 
+It loads the feature engineering pipeline and the trained model to predict on new data (used on deployment)
+</details>
 
 ### Configuration
 Configuration is handled by *config.yml* and *core.py*. These files contain mainly file names, expected features/target names and hyperparameters to use for modeling (previously found using GridSearchCV (for more details check the [jupyter notebooks](https://github.com/pcmaldonado/Predicting_used_cars_price))).
@@ -39,4 +53,4 @@ The **Static** folder contains all the CSS and images, and the **templates** fol
 * **Procfile** is needed to deploy the application on Heroku
 * **.slugignore** excludes certain files for the deployment
 * **requirements.txt** contains all the libraries (and their versions) needed to run the entire code
-* **app.py** uses Flaks to render the Web Application and predict on new data
+* **app.py** uses Flaks to render the Web Application and predict on new data, to run locally from terminal `python app.py`
