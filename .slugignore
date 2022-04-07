@@ -1,0 +1,5 @@
+# These files are not necessary to run the app, and are excluded from the deployment
+<!-- /regression_model/datasets/clean_data.csv
+/regression_model/datasets/scraped_data_used_cars.csv
+/regression_model/processing/data_process.py
+/regression_model/run_model.py -->

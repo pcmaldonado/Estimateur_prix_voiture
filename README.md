@@ -11,7 +11,7 @@ Details on the data wrangling & model selection process on: https://github.com/p
 It contains a local package containing all the code needed to create the Machine Learning model deployed on Heroku.
 Besides some subdirectories, it contains three python scripts:
 * *run_model.py:* it runs the entire process to create, train and save the ML model. To retrain the model, from project folder on terminal run `python regression_model/run_model.py`
-* *extract_information.py:* it runs information needed for the display of the web application. If a file update was needed, as before, run `python regression_model/extract_information.py`
+* *extract_information.py:* it saves information needed for the display of the web application onto pickle files. If a file update was needed, as before, run `python regression_model/extract_information.py`
 * *predict.py:* it loads the feature engineering pipeline and the trained model to predict on new data (used on deployment) 
 
 
