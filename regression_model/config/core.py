@@ -8,18 +8,22 @@ from strictyaml import YAML, load
 import regression_model
 
 # ==== DIRECTORIES ====
+# ROOT = PACKAGE_ROOT.parent
+CONFIG_DIR = Path(__file__).resolve().parent
+CONFIG_FILE_PATH = CONFIG_DIR / "config.yml"
+
 PACKAGE_ROOT = Path(regression_model.__file__).resolve().parent
-ROOT = PACKAGE_ROOT.parent
-CONFIG_FILE_PATH = PACKAGE_ROOT / "config.yml"
 DATASET_DIR = PACKAGE_ROOT / "datasets"
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
+
 
 # ==== CONFIGURATIONS ====
 class AppConfig(BaseModel):
     """Application-level config"""
 
     package_name: str
-    training_data_file: str
+    main_data_file: str
+    clean_data_file: str
     cars_origin_file: str
 
     feat_pipeline_save_file: str

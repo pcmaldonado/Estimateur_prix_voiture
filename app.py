@@ -1,12 +1,11 @@
 # ====== LIBRARIES ======
 from flask import Flask, render_template, request
-from regression_model import model
+from regression_model import predict
 from datetime import datetime
 import numpy as np
 
-from regression_model.config.core import config
 from regression_model.processing.input_validation import cast_num
-from regression_model.processing.data_manager import load_brands, load_fuels, load_trans, load_data_size
+from regression_model.extract_information import load_brands, load_fuels, load_transmission, load_data_size
 
 
 # ====== SETUP ======
@@ -17,12 +16,12 @@ years.insert(0, " ")
 range10 = list(np.arange(1,11))
 range10.insert(0, " ")
 
-brands = load_brands(f'{config.app_config.brands_save_file}.pkl')
-fuels = load_fuels(f'{config.app_config.fuels_save_file}.pkl')
-trans = load_trans(f'{config.app_config.trans_save_file}.pkl')
+brands = load_brands()
+fuels = load_fuels()
+trans = load_transmission()
 
 # Getting number of cars to display in predict.hmtl
-num_cars = load_data_size(f'{config.app_config.data_size_save_file}.pkl')
+num_cars = load_data_size()
 
 # Translating features to french to display in table at predict.html
 fr_features = ['Année', 'Marque', 'KMs', 'Energie', 'Emissions CO2', 'Consommation', 'Transmission', 'Portes', 'Puissance', 'Places']
@@ -64,7 +63,7 @@ def home():
     input_data['Seats'] = cast_num(request.form['seats'])
     
     # Predict price with regression model
-    pred = model.estimate_price(input_data)
+    pred = predict.estimate_price(input_data)
 
     input_data_values = list(input_data.values())
 
